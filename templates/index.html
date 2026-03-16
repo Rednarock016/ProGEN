@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProGen | Premium Password Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Pro<span class="highlight">Gen</span></h1>
+            <p>Generate secure passwords instantly.</p>
+        </header>
+
+        <main class="glass-panel">
+            <div class="password-display">
+                <input type="text" id="password-output" readonly placeholder="Click Generate..." />
+                <button id="copy-btn" class="icon-btn" title="Copy to clipboard">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <form id="generator-form">
+                <div class="controls-grid">
+                    <div class="control-group">
+                        <label for="uppercase">Uppercase Letters: <span class="val-badge" id="upp-val">2</span></label>
+                        <input type="range" id="uppercase" min="1" max="20" value="2">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="lowercase">Lowercase Letters: <span class="val-badge" id="low-val">4</span></label>
+                        <input type="range" id="lowercase" min="1" max="20" value="4">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="numbers">Numbers: <span class="val-badge" id="num-val">2</span></label>
+                        <input type="range" id="numbers" min="0" max="20" value="2">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="symbols">Symbols: <span class="val-badge" id="sym-val">2</span></label>
+                        <input type="range" id="symbols" min="0" max="10" value="2">
+                    </div>
+                </div>
+
+                <div class="mode-selector">
+                    <p>Generation Mode</p>
+                    <div class="toggle-container">
+                        <input type="radio" id="mode-easy" name="mode" value="easy" checked>
+                        <label for="mode-easy">Easy</label>
+                        
+                        <input type="radio" id="mode-hard" name="mode" value="hard">
+                        <label for="mode-hard">Hard</label>
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="generate-btn">
+                    <span class="text"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate Password</span>
+                </button>
+            </form>
+
+            <div class="save-section hidden" id="save-section">
+                <hr>
+                <h3>Save to Data Storage</h3>
+                <div class="save-controls">
+                    <input type="text" id="statement-input" placeholder="e.g., Google Account">
+                    <button id="save-btn" class="secondary-btn"><span>Save</span></button>
+                </div>
+                <p id="save-message" class="message"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=2"></script>
+</body>
+</html>
